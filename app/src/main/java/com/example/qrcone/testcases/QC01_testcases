@@ -1,0 +1,22 @@
+Name: Getting a list of QrCode without internet and without cache
+Preconditions: first installation, internet connection turned off
+Steps:
+1. open app from desktop
+No internet error and "Try Again" button displayed
+2. Click on the "Try Again" button
+No internet error and "Try Again" button displayed
+3. Turn on the Internet connection and click on "Try again"
+QrCode list displayed after upload
+
+Name: Getting a list of QrCode with internet enabled and no cache
+Preconditions: first installation
+Steps:
+1. open app from desktop
+QrCode list displayed after upload
+
+Name: Getting a list of QrCode with the Internet turned off and with the cache
+Preconditions: get a list of QrCodes in the previous session
+Steps
+1. open app from desktop
+QrCode list displayed without download
+
