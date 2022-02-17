@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QrCone</string>
+    <string name="add_qrcode">Add QrCode</string>
 </resources>
