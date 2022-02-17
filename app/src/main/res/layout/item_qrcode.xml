@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:id="@+id/qrCodeImageView"
+        android:layout_width="@dimen/qrCodeStandardSize"
+        android:layout_height="@dimen/qrCodeStandardSize"
+        app:srcCompat="@drawable/ic_baseline_qr_code_24"
+        android:contentDescription="@string/qrcodepreview" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="start|center_vertical"
+        android:padding="8dp"
+        android:textSize="24sp"
+        tools:text="Test Title" />
+</LinearLayout>
