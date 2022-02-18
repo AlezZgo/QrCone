@@ -1,22 +1,25 @@
-Name: Getting a list of QrCode without internet and without cache
-Preconditions: first installation, internet connection turned off
+Name: Creating QrCode by input text
+Preconditions: Internet connection turned off
 Steps:
 1. open app from desktop
-No internet error and "Try Again" button displayed
-2. Click on the "Try Again" button
-No internet error and "Try Again" button displayed
-3. Turn on the Internet connection and click on "Try again"
-QrCode list displayed after upload
+2. type something in text field
+3. Click on the "Create" button
+4. User get the no connection error on ui
+5. Turn on the Internet connection and click "Create" again
+6. User gets back to list screen and created QrCode is already there!
 
-Name: Getting a list of QrCode with internet enabled and no cache
-Preconditions: first installation
+Name: Creating QrCode by empty text
+Preconditions: input text is empty
 Steps:
 1. open app from desktop
-QrCode list displayed after upload
+2. type nothing in text field
+3. User get the empty text error on ui
 
-Name: Getting a list of QrCode with the Internet turned off and with the cache
-Preconditions: get a list of QrCodes in the previous session
-Steps
+Name: Creating QrCode with the same title as earlier
+Preconditions: there is QrCode with title "Code" in Cache
+Steps:
 1. open app from desktop
-QrCode list displayed without download
+2. type something in text field
+3. type "Code" in title field
+4. User get the title existing error on ui
 
