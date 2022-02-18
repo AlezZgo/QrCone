@@ -1,4 +1,4 @@
-package com.example.qrcone.presentation.main
+package com.example.qrcone.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

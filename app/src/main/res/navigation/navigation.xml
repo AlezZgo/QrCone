@@ -6,12 +6,12 @@
     app:startDestination="@id/listFragment">
     <fragment
         android:id="@+id/createFragment"
-        android:name="com.example.qrcone.CreateFragment"
+        android:name="com.example.qrcone.presentation.create.CreateFragment"
         android:label="create_fragment"
         tools:layout="@layout/fragment_create" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.qrcone.ListFragment"
+        android:name="com.example.qrcone.presentation.list.ListFragment"
         android:label="list_fragment"
         tools:layout="@layout/fragment_list" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.example.qrcone.DescriptionFragment"
+        android:name="com.example.qrcone.presentation.description.DescriptionFragment"
         android:label="description_fragment"
         tools:layout="@layout/fragment_description" />
 </navigation>
