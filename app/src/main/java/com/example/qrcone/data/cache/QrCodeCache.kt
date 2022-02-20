@@ -8,6 +8,6 @@ import java.util.*
 data class QrCodeCache(
     private val title: String,
     private val base64: Base64
-) : Abstract.Object<QrCodeData, QrCodeCacheToDataMapper>{
+) {
 
 }
