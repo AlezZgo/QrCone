@@ -9,10 +9,10 @@ import java.util.*
 interface QrConeApiService {
 
     @POST("uploadAttachment")
-    fun uploadAttachment(
+    suspend fun generateQrCode(
         type: Int,
         colored: Boolean,
-        filePart: Base64
-    ): QrCodeCloud
-
+        content: String,
+        media: Base64,
+    ): String
 }
