@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fab_margin">32dp</dimen>
-    <dimen name="qrCodeStandardSize">96dp</dimen>
+    <dimen name="qrCodeStandardSize">100dp</dimen>
 </resources>
