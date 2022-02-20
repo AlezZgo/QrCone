@@ -13,6 +13,6 @@ interface QrConeApiService {
         type: Int,
         colored: Boolean,
         content: String,
-        media: Base64,
+        media: String,
     ): String
 }

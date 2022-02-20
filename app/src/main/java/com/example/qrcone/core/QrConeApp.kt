@@ -12,15 +12,14 @@ class QrConeApp: Application() {
     override fun onCreate() {
         super.onCreate()
     }
+    fun provideInterceptor() = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
 
     fun provideOkHttpClient(interceptor: HttpLoggingInterceptor) =
         OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .build()
-
-    fun provideInterceptor() = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
 
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
@@ -31,6 +30,10 @@ class QrConeApp: Application() {
 
     fun provideApiService(retrofit: Retrofit): QrConeApiService {
         return retrofit.create(QrConeApiService::class.java)
+    }
+
+    fun getApi(): QrConeApiService{
+        return provideApiService(provideRetrofit(provideOkHttpClient(provideInterceptor())))
     }
 
     companion object {
