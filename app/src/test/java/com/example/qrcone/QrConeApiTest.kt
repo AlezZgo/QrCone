@@ -18,9 +18,9 @@ class QrConeApiTest {
 
         try {
             val response = api.generateQrCode(0,false,"Hello world!",encodedImage)
-            Assert.assertEquals(response.type, 2 + 2)
+            Assert.assertEquals(response, String)
         }catch (e: Exception){
-            Log.i("retrofit", "something going wrong")
+            Log.i("test", "something going wrong while generating")
         }
 
 

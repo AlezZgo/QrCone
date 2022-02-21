@@ -8,7 +8,7 @@ interface CloudDataSource {
         type: Int,
         colored: Boolean,
         content: String,
-        media: Base64,
+        media: String,
     ): String
 
     class Base(private val service: QrConeApiService) : CloudDataSource{
@@ -16,9 +16,10 @@ interface CloudDataSource {
             type: Int,
             colored: Boolean,
             content: String,
-            media: Base64,
+            media: String,
         ): String {
-            return service.generateQrCode(type,colored,content,media)
+//            return service.generateQrCode(type,colored,content,media)
+            return ""
         }
     }
 }
