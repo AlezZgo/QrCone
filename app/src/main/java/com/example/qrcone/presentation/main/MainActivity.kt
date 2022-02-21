@@ -39,9 +39,6 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun request() {
 
-        val str = "test image"
-        val encodedImage = Base64.getEncoder().encodeToString(str.toByteArray())
-
         val interceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
