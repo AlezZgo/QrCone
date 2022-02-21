@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CoroutineScope(Dispatchers.IO + Job()).launch {
-            request()
-        }
+//        CoroutineScope(Dispatchers.IO + Job()).launch {
+//            request()
+//        }
 
     }
 
