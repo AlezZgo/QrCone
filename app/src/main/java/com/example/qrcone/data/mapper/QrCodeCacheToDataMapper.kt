@@ -1,4 +1,4 @@
-package com.example.qrcone.data.cache
+package com.example.qrcone.data.mapper
 
 interface QrCodeCacheToDataMapper {
 
