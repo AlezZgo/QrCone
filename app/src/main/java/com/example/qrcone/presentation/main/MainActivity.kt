@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.qrcone.R
 import com.example.qrcone.data.cloud.QrCodeCloudRequest
 import com.example.qrcone.data.cloud.QrConeApiService
-import kotlinx.coroutines.*
-import okhttp3.MediaType
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.MultipartBody.Part.Companion.createFormData
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CoroutineScope(Dispatchers.IO + Job()).launch{
+        CoroutineScope(Dispatchers.IO + Job()).launch {
             request()
         }
 
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    suspend fun request(){
+    suspend fun request() {
 
         val str = "test image"
         val encodedImage = Base64.getEncoder().encodeToString(str.toByteArray())
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                     file.path,
                     file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                 ))
-        }catch (e: Exception){
+        } catch (e: Exception) {
             Log.i("test", "something going wrong while generating")
         }
     }
@@ -81,8 +81,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val baseUrl = "https://swapi.dev/"
     }
-
-
 
 
 }
