@@ -11,7 +11,7 @@ class QrCodeAdapter(
 ) : ListAdapter<QrCodeUi, QrCodeViewHolder>(QrCodeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QrCodeViewHolder {
-        val binding = ItemQrCodeBinding.inflate(
+        val binding = ItemQrcodeBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
