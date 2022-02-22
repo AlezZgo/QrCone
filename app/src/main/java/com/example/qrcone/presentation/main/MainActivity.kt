@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
 
             api.generateQrCode(
-                MultipartBody.Part.createFormData("text/plain",),
+                MultipartBody.Part.createFormData("text/plain",description.toString()),
                 MultipartBody.Part.createFormData(
                     "file",
                     file.path,
