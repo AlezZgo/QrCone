@@ -2,7 +2,6 @@ package com.example.qrcone.presentation.main
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.qrcone.R
@@ -20,7 +19,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,10 +28,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        CoroutineScope(Dispatchers.IO + Job()).launch {
-//            request()
-//        }
-
+        CoroutineScope(Dispatchers.IO + Job()).launch {
+            request()
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -63,16 +60,13 @@ class MainActivity : AppCompatActivity() {
             "https://helloworld!"
         )
 
-        try {
-            val response = api.generateQrCode(body,
-                MultipartBody.Part.createFormData(
-                    "file",
-                    file.path,
-                    file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-                ))
-        } catch (e: Exception) {
-            Log.i("test", "something going wrong while generating")
-        }
+        val response = api.generateQrCode(body,
+            MultipartBody.Part.createFormData(
+                "file",
+                file.path,
+                file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+            ))
+
     }
 
     companion object {

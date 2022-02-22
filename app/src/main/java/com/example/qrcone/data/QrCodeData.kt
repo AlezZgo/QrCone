@@ -5,6 +5,7 @@ import com.example.qrcone.domain.QrCodeDomain
 
 sealed class QrCodeData : Abstract.Object<QrCodeDomain,QrCodeDataToDomainMapper>{
 
+//    class Success(private val )
 
 
 }

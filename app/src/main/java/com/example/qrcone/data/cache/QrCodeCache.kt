@@ -10,8 +10,8 @@ import java.util.*
 @Entity(tableName = "qrCodes")
 data class QrCodeCache(
     @PrimaryKey
-    private val title: String,
-    private val base64: Base64
+    val title: String,
+    val media: String
 ) {
 
 }
