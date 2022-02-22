@@ -3,8 +3,6 @@ package com.example.starwarscharacters.presentation.adapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrcone.databinding.ItemQrcodeBinding
 import com.example.qrcone.presentation.QrCodeUi
-import com.example.starwarscharacters.databinding.ItemCharacterBinding
-import com.example.starwarscharacters.domain.entities.CharacterInfo
 
 class QrCodeViewHolder(
     private val binding: ItemQrcodeBinding,
@@ -12,19 +10,19 @@ class QrCodeViewHolder(
 
     fun bind(
         qrCode: QrCodeUi,
-        onQrCodeClickListener: QrCodeAdapter.OnQrCodeClickListener?
+        onQrCodeClickListener: QrCodeAdapter.OnQrCodeClickListener?,
     ) = with(binding) {
 
-        titleTextView.text = qrCode.title
-        qrCodeImageView.setImageResource() = qrCode.isFavourite
-
-        tgbFav.setOnClickListener {
-            onIsFavouriteClickListener?.onIsFavouriteClick(character)
-        }
-
-        root.setOnClickListener {
-            onQrCodeClickListener?.onCharacterClick(character)
-        }
+//        titleTextView.text = qrCode.title
+//        qrCodeImageView.setImageResource() = qrCode.isFavourite
+//
+//        tgbFav.setOnClickListener {
+//            onIsFavouriteClickListener?.onIsFavouriteClick(character)
+//        }
+//
+//        root.setOnClickListener {
+//            onQrCodeClickListener?.onCharacterClick(character)
+//        }
 
     }
 }
