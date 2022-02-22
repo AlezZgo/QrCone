@@ -1,9 +1,10 @@
 package com.example.qrcone.presentation.main
-
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.qrcone.R
 import com.example.qrcone.data.cloud.QrCodeCloudRequest
 import com.example.qrcone.data.cloud.QrConeApiService
@@ -15,10 +16,15 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,13 +34,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CoroutineScope(Dispatchers.IO + Job()).launch {
-            request()
-        }
+
+        request()
+
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    suspend fun request() {
+
+    companion object {
+        private const val baseUrl = "https://swapi.dev/"
+    }
+
+
+    private fun request() {
 
         val interceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -54,24 +65,31 @@ class MainActivity : AppCompatActivity() {
 
         val file = File("/storage/emulated/0/Download/image.jpg")
 
-        val body = QrCodeCloudRequest(
-            0,
-            false,
-            "https://helloworld!"
-        )
+        val description = QrCodeCloudRequest(0,false,"Hello world")
 
-        val response = api.generateQrCode(body,
-            MultipartBody.Part.createFormData(
-                "file",
-                file.path,
-                file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-            ))
+        CoroutineScope(Dispatchers.IO + Job()).launch {
 
+
+            api.generateQrCode(
+                MultipartBody.Part.createFormData("text/plain",),
+                MultipartBody.Part.createFormData(
+                    "file",
+                    file.path,
+                    file.asRequestBody("multipart/form-data".toMediaTypeOrNull()))
+            ).enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    if (response.isSuccessful)
+                        Log.d("logir", "${response.body()}")
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.e("logir", t.message.toString())
+                }
+
+            })
+        }
     }
-
-    companion object {
-        private const val baseUrl = "https://swapi.dev/"
-    }
-
-
 }
