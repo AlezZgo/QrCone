@@ -10,7 +10,7 @@ import com.example.qrcone.data.mapper.QrCodeCacheToDataMapper
 data class QrCodeCache(
     @PrimaryKey
     val title: String,
-    val mediaBase64: String,
+    var mediaBase64: String,
     val content: String,
 ) : Abstract.Object<QrCodeData, QrCodeCacheToDataMapper> {
     override fun map(mapper: QrCodeCacheToDataMapper) = mapper.map(title, mediaBase64, content)
