@@ -15,9 +15,9 @@ interface QrCodeRepository {
     class Base(private val qrCodeCacheDataSource: CacheDataSource,
                private val cacheToDataMapper: QrCodeCacheToDataMapper) : QrCodeRepository {
         override fun fetchQrCodes(): LiveData<List<QrCodeData>> {
-            Transformations.map(qrCodeCacheDataSource.fetchQrCodes()){list->
+            return Transformations.map(qrCodeCacheDataSource.fetchQrCodes()){list->
                 list.map {
-                    cacheToDataMapper.map()
+                    cacheToDataMapper.map(it.title,it.mediaBase64,it.content)
                 }
             }
         }
