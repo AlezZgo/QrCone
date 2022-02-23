@@ -12,7 +12,7 @@ interface QrCodeRepository {
 
     fun fetchQrCodes() : LiveData<List<QrCodeData>>
 
-    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest)
+    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) : QrCodeData
 
     class Base(private val qrCodeCacheDataSource: CacheDataSource,
                private val qrCodeCloudDataSource: CloudDataSource,
@@ -28,9 +28,11 @@ interface QrCodeRepository {
             }
         }
 
-        override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest)  {
+        override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeData {
             val qrCodeGenerated = qrCodeCloudDataSource.createQrCode(qrCodeRequest)
-            qrCodeCacheDataSource.insertQrCode(qrCodeRequest.map(requestToCacheMapper),qrCodeGenerated)
+            val qrCodeCache = qrCodeRequest.map(requestToCacheMapper).copy(mediaBase64 = qrCodeGenerated)
+            qrCodeCacheDataSource.insertQrCode(qrCodeCache)
+            return qrCodeCache.map(cacheToDataMapper)
         }
     }
 

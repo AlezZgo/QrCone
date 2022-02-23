@@ -12,6 +12,6 @@ data class QrCodeRequest(
 ) : Abstract.Object<QrCodeCache, QrCodeRequestToCacheMapper> {
 
     override fun map(mapper: QrCodeRequestToCacheMapper): QrCodeCache {
-        TODO("Not yet implemented")
+        return QrCodeCache(title,mediaUri,content)
     }
 }
