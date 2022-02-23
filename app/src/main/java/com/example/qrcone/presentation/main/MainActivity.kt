@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
 
         val file = File("/storage/emulated/0/Download/image.jpg")
 
+        val br = 0
+
         val description = QrCodeCloudRequest(0,false,"Hello world")
 
         CoroutineScope(Dispatchers.IO + Job()).launch {
