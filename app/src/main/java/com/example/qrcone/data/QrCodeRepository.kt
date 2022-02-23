@@ -4,16 +4,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.qrcone.data.cache.CacheDataSource
 import com.example.qrcone.data.cache.QrCodeCache
+import com.example.qrcone.data.cloud.CloudDataSource
 import com.example.qrcone.data.mapper.QrCodeCacheToDataMapper
+import com.example.qrcone.domain.QrCodeRequest
 
 interface QrCodeRepository {
 
     fun fetchQrCodes() : LiveData<List<QrCodeData>>
 
-    suspend fun generateQrCode(qrCodeCache: QrCodeCache)
+    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest)
 
     class Base(private val qrCodeCacheDataSource: CacheDataSource,
+               private val qrCodeCloudDataSource: CloudDataSource,
                private val cacheToDataMapper: QrCodeCacheToDataMapper) : QrCodeRepository {
+
         override fun fetchQrCodes(): LiveData<List<QrCodeData>> {
             return Transformations.map(qrCodeCacheDataSource.fetchQrCodes()){list->
                 list.map {
@@ -22,8 +26,8 @@ interface QrCodeRepository {
             }
         }
 
-        override suspend fun generateQrCode(qrCodeCache: QrCodeCache) {
-            TODO("Not yet implemented")
+        override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) {
+            qrCodeCloudDataSource.createQrCode(qrCodeRequest)
         }
     }
 

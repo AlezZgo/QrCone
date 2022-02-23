@@ -8,8 +8,6 @@ import retrofit2.http.Part
 import java.util.*
 
 data class QrCodeCloudRequest (
-    @SerializedName("type")
-    val type: Int,
     @SerializedName("colored")
     val colored: Boolean,
     @SerializedName("content")
