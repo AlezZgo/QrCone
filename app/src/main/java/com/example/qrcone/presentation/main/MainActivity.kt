@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val baseUrl = "https://swapi.dev/"
+        private const val baseUrl = "https://qrcone.herokuapp.com/"
     }
 
 }
