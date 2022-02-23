@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">QrCone</string>
+    <string name="generic_fail_message">unknown error</string>
+    <string name="no_cached_data">No Cached data</string>
+    <string name="service_unavailable">Service is unavailable</string>
+    <string name="no_connection">No internet connection</string>
 </resources>
