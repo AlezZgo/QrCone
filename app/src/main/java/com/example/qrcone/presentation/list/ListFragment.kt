@@ -22,13 +22,30 @@ class ListFragment :
         viewModel = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
 
         binding.floatingActionButton.setOnClickListener {
-
             findNavController().navigate(ListFragmentDirections.actionListFragmentToCreateFragment())
-            //setUpAdapter()
-
-
         }
-
+//        setUpAdapter()
 
     }
+
+//    val adapter = CharactersAdapter(
+//        object : CharactersAdapter.OnCharacterClickListener {
+//            override fun onCharacterClick(character: CharacterInfo) {
+//                findNavController().navigate(
+//                    CharactersFragmentDirections.actionNavigationCharactersToDescriptionFragment(
+//                        character)
+//                )
+//            }
+//        },
+//        object : CharactersAdapter.OnIsFavouriteClickListener {
+//            override fun onIsFavouriteClick(character: CharacterInfo) {
+//                viewModel.changeIsFavouriteStatus(character)
+//            }
+//        })
+//
+//    binding.rvCharacters.adapter = adapter
+//
+//    viewModel.characterList.observe(viewLifecycleOwner) {
+//        adapter.submitList(it)
+//    }
 }

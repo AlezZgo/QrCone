@@ -16,6 +16,5 @@ class QrConeApp: Application() {
     override fun onCreate() {
         component.inject(this)
         super.onCreate()
-
     }
 }

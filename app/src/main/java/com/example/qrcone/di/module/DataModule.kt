@@ -4,8 +4,7 @@ import com.example.qrcone.data.cache.AppDatabase
 import com.example.qrcone.data.cache.CacheDataSource
 import com.example.qrcone.data.cache.QrCodeDao
 import com.example.qrcone.data.cloud.CloudDataSource
-import com.example.qrcone.data.mapper.QrCodeCacheToDataMapper
-import com.example.qrcone.data.mapper.QrCodeDataToDomainMapper
+import com.example.qrcone.data.mapper.QrCodeCacheToDomainMapper
 
 import dagger.Binds
 import dagger.Module
@@ -42,7 +41,7 @@ interface DataModule {
 
         @ApplicationScope
         @Provides
-        fun provideCacheToDataMapper() : QrCodeCacheToDataMapper = QrCodeCacheToDataMapper.Base()
+        fun provideCacheToDomainMapper() : QrCodeCacheToDomainMapper = QrCodeCacheToDomainMapper.Base()
 
     }
 }
