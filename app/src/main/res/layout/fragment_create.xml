@@ -5,39 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/styleTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Style"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/styleTextView">
-
-        <RadioButton
-            android:id="@+id/simpleQrRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Simple QrCode" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Colored QrCode" />
-
-    </RadioGroup>
 
     <TextView
         android:id="@+id/ContentTextView"
@@ -49,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -107,5 +74,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chooseFileImage"
         app:layout_constraintTop_toBottomOf="@+id/MediaTextView" />
+
+    <ImageView
+        android:id="@+id/qrCodePreviewImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/createQrCodeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pathTextView"
+        app:srcCompat="@drawable/ic_baseline_qr_code_24" />
+
+    <ImageView
+        android:id="@+id/color_picker_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/qrCodePreviewImage"
+        app:layout_constraintTop_toTopOf="@+id/qrCodePreviewImage"
+        app:srcCompat="@drawable/ic_baseline_color_lens_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

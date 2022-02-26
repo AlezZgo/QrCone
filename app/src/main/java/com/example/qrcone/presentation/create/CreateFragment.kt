@@ -7,8 +7,10 @@ import androidx.navigation.fragment.findNavController
 import com.esafirm.imagepicker.features.ImagePickerConfig
 import com.esafirm.imagepicker.features.ImagePickerMode
 import com.esafirm.imagepicker.features.registerImagePicker
+import com.example.qrcone.R
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentCreateBinding
+import dev.sasikanth.colorsheet.ColorSheet
 
 class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
     FragmentCreateBinding::inflate) {
@@ -32,6 +34,17 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
 
         binding.chooseFileImage.setOnClickListener {
             imagePicker.launch(config)
+        }
+
+        val colors = resources.getIntArray(R.array.bottom_sheet_colors)
+
+        binding.colorPickerButton.setOnClickListener {
+            ColorSheet().colorPicker(
+                colors = colors,
+                listener = { color ->
+                    binding.qrCodePreviewImage.setColorFilter(color)
+                })
+                .show(requireActivity().supportFragmentManager)
         }
 
         binding.createQrCodeButton.setOnClickListener {

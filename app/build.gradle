@@ -75,4 +75,6 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.35.1'
 
     implementation 'com.github.esafirm:android-image-picker:3.0.0-beta1'
+
+    implementation "dev.sasikanth:colorsheet:1.0.1"
 }
