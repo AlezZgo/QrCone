@@ -3,4 +3,6 @@
     <string name="add_qrcode">Add QrCode</string>
     <string name="qrcodepreview">QrCodePreview</string>
     <string name="create">Create</string>
+    <string name="qr_code_created">Qr code created!</string>
+    <string name="okey">okey</string>
 </resources>

@@ -1,9 +1,11 @@
 import android.app.Application
-import com.example.starwarscharacters.presentation.MainActivity
-import com.example.starwarscharacters.presentation.StarWarsApp
-import com.example.starwarscharacters.presentation.characters.CharactersFragment
-import com.example.starwarscharacters.presentation.description.DescriptionFragment
-import com.example.starwarscharacters.presentation.favourites.FavouritesFragment
+import com.example.qrcone.core.QrConeApp
+import com.example.qrcone.presentation.MainActivity
+import com.example.qrcone.presentation.QrCodeCreatedFragment
+import com.example.qrcone.presentation.create.CreateFragment
+import com.example.qrcone.presentation.description.DescriptionFragment
+import com.example.qrcone.presentation.list.ListFragment
+
 import dagger.BindsInstance
 import dagger.Component
 
@@ -20,13 +22,15 @@ interface ApplicationComponent {
 
     fun inject(activity: MainActivity)
 
-    fun inject(charactersFragment: CharactersFragment)
-
-    fun inject(favouritesFragment: FavouritesFragment)
+    fun inject(listFragment: ListFragment)
 
     fun inject(descriptionFragment: DescriptionFragment)
 
-    fun inject(application: StarWarsApp)
+    fun inject(createFragment: CreateFragment)
+
+    fun inject(qrCodeCreatedFragment: QrCodeCreatedFragment)
+
+    fun inject(application: QrConeApp)
 
     @Component.Factory
     interface Factory {

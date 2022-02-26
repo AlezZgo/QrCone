@@ -8,7 +8,12 @@
         android:id="@+id/createFragment"
         android:name="com.example.qrcone.presentation.create.CreateFragment"
         android:label="create_fragment"
-        tools:layout="@layout/fragment_create" />
+        tools:layout="@layout/fragment_create" >
+        <action
+            android:id="@+id/action_createFragment_to_qrCodeCreatedFragment"
+            app:destination="@id/qrCodeCreatedFragment"
+            app:popUpTo="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.qrcone.presentation.list.ListFragment"
@@ -26,4 +31,9 @@
         android:name="com.example.qrcone.presentation.description.DescriptionFragment"
         android:label="description_fragment"
         tools:layout="@layout/fragment_description" />
+    <fragment
+        android:id="@+id/qrCodeCreatedFragment"
+        android:name="com.example.qrcone.presentation.QrCodeCreatedFragment"
+        android:label="qr_code_created_fragment"
+        tools:layout="@layout/qr_code_created_fragment" />
 </navigation>
