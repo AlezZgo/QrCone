@@ -35,5 +35,5 @@
         android:id="@+id/qrCodeCreatedFragment"
         android:name="com.example.qrcone.presentation.QrCodeCreatedFragment"
         android:label="qr_code_created_fragment"
-        tools:layout="@layout/qr_code_created_fragment" />
+        tools:layout="@layout/fragment_qrcode_created" />
 </navigation>

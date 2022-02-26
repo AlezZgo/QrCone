@@ -20,7 +20,7 @@ class QrCodeCreatedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.qr_code_created_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_qrcode_created, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

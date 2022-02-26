@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.esafirm.imagepicker.features.ImagePickerConfig
 import com.esafirm.imagepicker.features.ImagePickerLauncher
 import com.esafirm.imagepicker.features.ImagePickerMode
@@ -33,6 +34,12 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
 
         binding.chooseFileImage.setOnClickListener {
             imagePicker.launch(config)
+        }
+
+        binding.createQrCodeButton.setOnClickListener {
+            findNavController().navigate(
+                CreateFragmentDirections.actionCreateFragmentToQrCodeCreatedFragment()
+            )
         }
 
     }

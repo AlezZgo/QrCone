@@ -49,7 +49,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:text="Title" />
+            android:text="Title" />
 
         <TextView
             android:id="@+id/textView5"
@@ -60,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            tools:text="Content" />
+            android:text="Content" />
 
         <Button
             android:id="@+id/button"
