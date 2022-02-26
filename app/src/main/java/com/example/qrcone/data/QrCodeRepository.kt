@@ -7,6 +7,7 @@ import com.example.qrcone.data.cloud.CloudDataSource
 import com.example.qrcone.data.mapper.QrCodeCacheToDomainMapper
 import com.example.qrcone.domain.QrCodeDomain
 import com.example.qrcone.domain.QrCodeRequest
+import javax.inject.Inject
 
 interface QrCodeRepository {
 
@@ -14,9 +15,8 @@ interface QrCodeRepository {
 
     suspend fun generateQrCode(qrCodeRequest: QrCodeRequest)
 
-    class Base(private val qrCodeCacheDataSource: CacheDataSource,
-               private val qrCodeCloudDataSource: CloudDataSource,
-               private val qrCodeCacheToDomainMapper: QrCodeCacheToDomainMapper
+    class Base @Inject constructor(private val qrCodeCacheDataSource: CacheDataSource,
+                                  private val qrCodeCacheToDomainMapper: QrCodeCacheToDomainMapper
     ) : QrCodeRepository {
 
         override fun fetchQrCodes(): LiveData<List<QrCodeDomain>> {

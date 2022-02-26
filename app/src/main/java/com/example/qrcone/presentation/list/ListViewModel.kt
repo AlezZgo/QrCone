@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ListViewModel @Inject constructor(
-
+    private val qrCodeInteractor: QrCodeInteractor
 ) : ViewModel() {
 
-//    val qrCodes = qrCodeInteractor.fetchQrCodes()
+    val qrCodes = qrCodeInteractor.fetchQrCodes()
 
 }

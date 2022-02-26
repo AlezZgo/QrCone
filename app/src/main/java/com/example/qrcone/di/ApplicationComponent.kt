@@ -1,5 +1,6 @@
 import android.app.Application
 import com.example.qrcone.core.QrConeApp
+import com.example.qrcone.di.module.DomainModule
 import com.example.qrcone.presentation.MainActivity
 import com.example.qrcone.presentation.create.CreateFragment
 import com.example.qrcone.presentation.description.DescriptionFragment
@@ -11,9 +12,9 @@ import dagger.Component
 @ApplicationScope
 @Component(
     modules = [
-//        DataModule::class,
+        DataModule::class,
         ViewModelModule::class,
-//        DomainModule::class
+        DomainModule::class
 //        NetModule::class
     ]
 )

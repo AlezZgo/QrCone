@@ -2,6 +2,7 @@ package com.example.qrcone.domain
 
 import androidx.lifecycle.LiveData
 import com.example.qrcone.data.QrCodeRepository
+import javax.inject.Inject
 
 interface QrCodeInteractor {
     
@@ -11,7 +12,7 @@ interface QrCodeInteractor {
 
     fun removeQrCode(qrCodeDomain : QrCodeDomain)
 
-    class Base(private val repository: QrCodeRepository): QrCodeInteractor{
+    class Base @Inject constructor(private val repository: QrCodeRepository): QrCodeInteractor{
         override fun fetchQrCodes(): LiveData<List<QrCodeDomain>> {
             return repository.fetchQrCodes()
         }

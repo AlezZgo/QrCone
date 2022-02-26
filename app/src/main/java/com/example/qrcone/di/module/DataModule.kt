@@ -15,13 +15,14 @@ interface DataModule {
 
     @ApplicationScope
     @Binds
-    fun bindQrCodeListRepository(impl: QrCodeRepository.Base): QrCodeRepository
+    fun bindQrCodeRepository(impl: QrCodeRepository.Base): QrCodeRepository
 
     @ApplicationScope
     @Binds
     fun bindCloudDataSource(impl: CloudDataSource.Test): CloudDataSource
 
     companion object {
+
 
         @ApplicationScope
         @Provides
