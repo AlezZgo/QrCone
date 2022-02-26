@@ -1,4 +1,4 @@
-package com.example.qrcone.presentation
+package com.example.qrcone.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.example.qrcone.core.QrConeApp
+import com.example.qrcone.presentation.ViewModelFactory
 import javax.inject.Inject
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T

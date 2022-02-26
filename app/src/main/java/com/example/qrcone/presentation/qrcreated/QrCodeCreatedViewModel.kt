@@ -1,4 +1,4 @@
-package com.example.qrcone.presentation
+package com.example.qrcone.presentation.qrcreated
 
 import androidx.lifecycle.ViewModel
 

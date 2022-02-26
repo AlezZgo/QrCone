@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentListBinding
-import com.example.qrcone.presentation.BaseFragment
 
 class ListFragment :
     BaseFragment<FragmentListBinding, ListViewModel>(FragmentListBinding::inflate) {

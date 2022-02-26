@@ -1,7 +1,7 @@
 import android.app.Application
 import com.example.qrcone.core.QrConeApp
 import com.example.qrcone.presentation.MainActivity
-import com.example.qrcone.presentation.QrCodeCreatedFragment
+import com.example.qrcone.presentation.qrcreated.QrCodeCreatedFragment
 import com.example.qrcone.presentation.create.CreateFragment
 import com.example.qrcone.presentation.description.DescriptionFragment
 import com.example.qrcone.presentation.list.ListFragment

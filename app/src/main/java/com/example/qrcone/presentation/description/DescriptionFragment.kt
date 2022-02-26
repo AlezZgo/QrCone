@@ -1,15 +1,11 @@
 package com.example.qrcone.presentation.description
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.example.qrcone.R
+import androidx.lifecycle.ViewModelProvider
+import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentDescriptionBinding
-import com.example.qrcone.presentation.BaseFragment
 
 class DescriptionFragment : BaseFragment<FragmentDescriptionBinding, DescriptionViewModel>(
     FragmentDescriptionBinding::inflate) {
@@ -23,7 +19,6 @@ class DescriptionFragment : BaseFragment<FragmentDescriptionBinding, Description
         component.inject(this)
         super.onAttach(context)
     }
-
 
 
 }
