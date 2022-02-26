@@ -1,32 +1,45 @@
 package com.example.qrcone.presentation.create
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.example.qrcone.R
+import com.esafirm.imagepicker.features.ImagePickerConfig
+import com.esafirm.imagepicker.features.ImagePickerLauncher
+import com.esafirm.imagepicker.features.ImagePickerMode
+import com.esafirm.imagepicker.features.registerImagePicker
+import com.example.qrcone.databinding.FragmentCreateBinding
+import com.example.qrcone.presentation.BaseFragment
 
-class CreateFragment : Fragment() {
+class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
+    FragmentCreateBinding::inflate) {
 
-    companion object {
-        fun newInstance() = CreateFragment()
+//    private lateinit var imagePicker: ImagePickerLauncher
+//    private lateinit var config: ImagePickerConfig
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//        viewModel = ViewModelProvider(this, viewModelFactory)[CreateViewModel::class.java]
+
+        val config = ImagePickerConfig {
+            mode = ImagePickerMode.SINGLE
+        }
+
+        val imagePicker = registerImagePicker {
+//            viewModel.path = it.first().path
+            binding.pathTextView.text.insert(0,it.first().path)
+        }
+
+        binding.chooseFileImage.setOnClickListener {
+            imagePicker.launch(config)
+        }
+
     }
 
-    private lateinit var viewModel: CreateViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        return inflater.inflate(R.layout.fragment_create, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CreateViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
     }
 
 }
