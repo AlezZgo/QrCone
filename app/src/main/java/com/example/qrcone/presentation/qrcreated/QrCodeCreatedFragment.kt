@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.qrcone.R
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentCreateBinding
@@ -20,6 +21,10 @@ class QrCodeCreatedFragment : BaseFragment<FragmentQrcodeCreatedBinding, QrCodeC
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[QrCodeCreatedViewModel::class.java]
+
+        binding.doneButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onAttach(context: Context) {

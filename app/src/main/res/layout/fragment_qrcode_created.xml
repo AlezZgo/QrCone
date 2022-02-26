@@ -18,52 +18,52 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/qrCodeCreatedHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/qr_code_created"
             android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/qrCodeCreatedTitle"
+            app:layout_constraintBottom_toTopOf="@+id/createdQrCodeTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/createdQrCodeImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintBottom_toTopOf="@+id/createdQrCodeContent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qrCodeCreatedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/createdQrCodeTitle"
             app:srcCompat="@drawable/ic_baseline_qr_code_24" />
 
         <TextView
-            android:id="@+id/qrCodeCreatedTitle"
+            android:id="@+id/createdQrCodeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintBottom_toTopOf="@+id/createdQrCodeImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/qrCodeCreatedHeader"
             android:text="Title" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/createdQrCodeContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/doneButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/createdQrCodeImage"
             android:text="Content" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/doneButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/okey"

@@ -1,7 +1,10 @@
 package com.example.qrcone.presentation.qrcreated
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class QrCodeCreatedViewModel : ViewModel() {
+class QrCodeCreatedViewModel @Inject constructor(
+
+) : ViewModel() {
     // TODO: Implement the ViewModel
 }

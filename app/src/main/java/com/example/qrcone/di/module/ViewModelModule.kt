@@ -1,5 +1,8 @@
 import androidx.lifecycle.ViewModel
+import com.example.qrcone.presentation.create.CreateViewModel
+import com.example.qrcone.presentation.description.DescriptionViewModel
 import com.example.qrcone.presentation.list.ListViewModel
+import com.example.qrcone.presentation.qrcreated.QrCodeCreatedViewModel
 
 import dagger.Binds
 import dagger.Module
@@ -13,20 +16,20 @@ interface ViewModelModule {
     @ViewModelKey(ListViewModel::class)
     fun bindListViewModel(viewModel: ListViewModel): ViewModel
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(DescriptionViewModel::class)
-//    fun bindDescriptionViewModel(viewModel: DescriptionViewModel): ViewModel
-//
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(CreateViewModel::class)
-//    fun bindCreateViewModel(viewModel: CreateViewModel): ViewModel
-//
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(QrCodeCreatedViewModel::class)
-//    fun bindQrCodeCreatedViewModel(viewModel: QrCodeCreatedViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(DescriptionViewModel::class)
+    fun bindDescriptionViewModel(viewModel: DescriptionViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CreateViewModel::class)
+    fun bindCreateViewModel(viewModel: CreateViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(QrCodeCreatedViewModel::class)
+    fun bindQrCodeCreatedViewModel(viewModel: QrCodeCreatedViewModel): ViewModel
 
 
 }
