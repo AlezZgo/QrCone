@@ -1,5 +1,6 @@
 package com.example.qrcone.presentation.qrcreated
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,26 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qrcone.R
+import com.example.qrcone.core.BaseFragment
+import com.example.qrcone.databinding.FragmentCreateBinding
+import com.example.qrcone.databinding.FragmentDescriptionBinding
+import com.example.qrcone.databinding.FragmentQrcodeCreatedBinding
+import com.example.qrcone.presentation.description.DescriptionViewModel
 
-class QrCodeCreatedFragment : Fragment() {
+class QrCodeCreatedFragment : BaseFragment<FragmentQrcodeCreatedBinding, QrCodeCreatedViewModel>(
+    FragmentQrcodeCreatedBinding::inflate) {
 
-    companion object {
-        fun newInstance() = QrCodeCreatedFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)[QrCodeCreatedViewModel::class.java]
     }
 
-    private lateinit var viewModel: QrCodeCreatedViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        return inflater.inflate(R.layout.fragment_qrcode_created, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(QrCodeCreatedViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
     }
 
 }
