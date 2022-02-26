@@ -1,3 +1,4 @@
+import android.widget.ListView
 import androidx.lifecycle.ViewModel
 import com.example.qrcone.presentation.QrCodeCreatedViewModel
 import com.example.qrcone.presentation.create.CreateViewModel
@@ -13,23 +14,23 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CreateViewModel::class)
+    @ViewModelKey(ListViewModel::class)
     fun bindListViewModel(viewModel: ListViewModel): ViewModel
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(ListViewModel::class)
-    fun bindDescriptionViewModel(viewModel: DescriptionViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(CreateViewModel::class)
-    fun bindCreateViewModel(viewModel: CreateViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(DescriptionViewModel::class)
-    fun bindQrCodeCreatedViewModel(viewModel: QrCodeCreatedViewModel): ViewModel
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(DescriptionViewModel::class)
+//    fun bindDescriptionViewModel(viewModel: DescriptionViewModel): ViewModel
+//
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(CreateViewModel::class)
+//    fun bindCreateViewModel(viewModel: CreateViewModel): ViewModel
+//
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(QrCodeCreatedViewModel::class)
+//    fun bindQrCodeCreatedViewModel(viewModel: QrCodeCreatedViewModel): ViewModel
 
 
 }

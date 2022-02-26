@@ -1,5 +1,6 @@
 package com.example.qrcone.presentation.description
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,26 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qrcone.R
+import com.example.qrcone.databinding.FragmentDescriptionBinding
+import com.example.qrcone.presentation.BaseFragment
 
-class DescriptionFragment : Fragment() {
+class DescriptionFragment : BaseFragment<FragmentDescriptionBinding, DescriptionViewModel>(
+    FragmentDescriptionBinding::inflate) {
 
-    companion object {
-        fun newInstance() = DescriptionFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)[DescriptionViewModel::class.java]
     }
 
-    private lateinit var viewModel: DescriptionViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        return inflater.inflate(R.layout.fragment_description, container, false)
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DescriptionViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }

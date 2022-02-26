@@ -1,33 +1,34 @@
 package com.example.qrcone.presentation.list
 
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.qrcone.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.qrcone.databinding.FragmentListBinding
+import com.example.qrcone.presentation.BaseFragment
 
-class ListFragment : Fragment() {
+class ListFragment :
+    BaseFragment<FragmentListBinding, ListViewModel>(FragmentListBinding::inflate) {
 
-    companion object {
-        fun newInstance() = ListFragment()
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
     }
 
-    private lateinit var viewModel: ListViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
+        viewModel = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
+
+        binding.floatingActionButton.setOnClickListener {
+
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToCreateFragment())
+            //setUpAdapter()
 
 
-
-
-
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        }
 
 
     }
-
-
 }
