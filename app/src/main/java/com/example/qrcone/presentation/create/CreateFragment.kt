@@ -57,7 +57,6 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
         }
     }
 
-
     override fun onAttach(context: Context) {
         component.inject(this)
         super.onAttach(context)

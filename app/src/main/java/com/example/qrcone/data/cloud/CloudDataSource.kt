@@ -2,6 +2,10 @@ package com.example.qrcone.data.cloud
 
 import com.example.qrcone.domain.QrCodeRequest
 import kotlinx.coroutines.delay
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 import javax.inject.Inject
 
 interface CloudDataSource {
@@ -16,6 +20,22 @@ interface CloudDataSource {
         ): String {
             delay(2000)
             return TEST_BASE64_QR_CODE
+        }
+
+        class Base @Inject constructor(private val service: QrConeApiService) : CloudDataSource{
+            override suspend fun createQrCode(qrCodeRequest: QrCodeRequest): String {
+
+                val file = File(qrCodeRequest.mediaPath)
+
+                val formData = MultipartBody.Part.createFormData(
+                    "file",
+                    file.path,
+                    file.asRequestBody("multipart/form-data".toMediaType())
+                )
+
+                return service.generate(formData,qrCodeRequest.color,qrCodeRequest.content)
+            }
+
         }
 
         companion object {
