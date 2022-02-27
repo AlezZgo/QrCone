@@ -30,7 +30,11 @@
         android:id="@+id/descriptionFragment"
         android:name="com.example.qrcone.presentation.description.DescriptionFragment"
         android:label="description_fragment"
-        tools:layout="@layout/fragment_description" />
+        tools:layout="@layout/fragment_description" >
+        <argument
+            android:name="QrCode"
+            app:argType="com.example.qrcone.domain.QrCodeDomain" />
+    </fragment>
     <fragment
         android:id="@+id/qrCodeCreatedFragment"
         android:name="com.example.qrcone.presentation.qrcreated.QrCodeCreatedFragment"

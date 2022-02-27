@@ -3,13 +3,11 @@ package com.example.qrcone.presentation.list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentListBinding
 import com.example.qrcone.domain.QrCodeDomain
-import com.example.qrcone.presentation.QrCodeUi
 import com.example.starwarscharacters.presentation.adapter.QrCodeAdapter
 
 class ListFragment :
@@ -36,7 +34,8 @@ class ListFragment :
         val adapter = QrCodeAdapter(
             object : QrCodeAdapter.OnQrCodeClickListener {
                 override fun onQrCodeClick(qrCode: QrCodeDomain) {
-                    Toast.makeText(context,qrCode.title,Toast.LENGTH_LONG).show()
+                    findNavController().navigate(ListFragmentDirections.actionListFragmentToDescriptionFragment(
+                        qrCode))
                 }
 
 
@@ -46,7 +45,6 @@ class ListFragment :
         viewModel.qrCodes.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
 
 
     }
