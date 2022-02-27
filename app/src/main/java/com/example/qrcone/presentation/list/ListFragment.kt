@@ -42,7 +42,8 @@ class ListFragment :
                 override fun onQrCodeClick(qrCode: QrCodeDomain) {
                     findNavController().navigate(ListFragmentDirections.actionListFragmentToDescriptionFragment(
                         qrCode))
-                }}
+                }
+            }
         )
 
         binding.recyclerview.adapter = adapter
@@ -50,6 +51,36 @@ class ListFragment :
         viewModel.qrCodes.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+
+        setupSwipeListener(adapter)
+
+    }
+
+    private fun setupSwipeListener(adapter: QrCodeAdapter) {
+        val callback = object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val item = adapter.currentList[viewHolder.adapterPosition]
+                CoroutineScope(Dispatchers.IO + Job()).launch {
+                    viewModel.delete(item)
+                }
+            }
+
+        }
+
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerview)
 
     }
 
