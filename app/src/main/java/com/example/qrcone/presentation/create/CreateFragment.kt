@@ -49,7 +49,7 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
                     QrCodeRequest(
                         title = binding.titleCreate.text.toString(),
                         color = viewModel.currentColor,
-                        content = binding.contentCreate.toString(),
+                        content = binding.contentCreate.text.toString(),
                         mediaPath = viewModel.imagePath.toString()
                     )
                 )
