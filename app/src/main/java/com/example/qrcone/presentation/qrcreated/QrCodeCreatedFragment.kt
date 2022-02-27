@@ -54,6 +54,7 @@ class QrCodeCreatedFragment : BaseFragment<FragmentQrcodeCreatedBinding, QrCodeC
                 activity?.runOnUiThread {
                     binding.progressBar.visibility = View.GONE
                     binding.constraintLayout.visibility = View.VISIBLE
+                    binding.qrCodeCreatedHeader.text = "Qr code not created"
                     binding.createdQrCodeTitle.text = e.message
                     binding.createdQrCodeContent.text = ""
 

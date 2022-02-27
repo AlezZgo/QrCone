@@ -13,7 +13,7 @@ interface NetModule {
 
     @ApplicationScope
     @Binds
-    fun bindQrCodeCloudDataSource(impl: CloudDataSource.Test): CloudDataSource
+    fun bindQrCodeCloudDataSource(impl: CloudDataSource.Base): CloudDataSource
 
     companion object {
         @Provides
@@ -44,7 +44,7 @@ interface NetModule {
             return retrofit.create(QrConeApiService::class.java)
         }
 
-        private const val baseUrl = "https://qrcone.herokuapp.com/"
+        private const val baseUrl = "https://qrcone2.herokuapp.com/"
 
     }
 

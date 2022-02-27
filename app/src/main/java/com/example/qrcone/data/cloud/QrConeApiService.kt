@@ -9,10 +9,10 @@ import retrofit2.http.Query
 interface QrConeApiService {
 
     @Multipart
-    @POST("qrgen")
+    @POST("qrgen/")
     suspend fun generate(
         @Part filePart: MultipartBody.Part,
-        @Query("colored") colored: String,
+        @Query("color") colored: String,
         @Query("content") content: String,
     ): String
 }
