@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.qrcone.databinding.ItemQrcodeBinding
+import com.example.qrcone.domain.QrCodeDomain
 import com.example.qrcone.presentation.QrCodeUi
 
 class QrCodeAdapter(
     private val onQrCodeClickListener: OnQrCodeClickListener,
-) : ListAdapter<QrCodeUi, QrCodeViewHolder>(QrCodeDiffCallback()) {
+) : ListAdapter<QrCodeDomain, QrCodeViewHolder>(QrCodeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QrCodeViewHolder {
         val binding = ItemQrcodeBinding.inflate(
@@ -25,7 +26,7 @@ class QrCodeAdapter(
     }
 
     interface OnQrCodeClickListener {
-        fun onCharacterClick(character: QrCodeUi)
+        fun onQrCodeClick(qrCode: QrCodeDomain)
     }
 
 }

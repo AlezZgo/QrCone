@@ -3,10 +3,14 @@ package com.example.qrcone.presentation.list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentListBinding
+import com.example.qrcone.domain.QrCodeDomain
+import com.example.qrcone.presentation.QrCodeUi
+import com.example.starwarscharacters.presentation.adapter.QrCodeAdapter
 
 class ListFragment :
     BaseFragment<FragmentListBinding, ListViewModel>(FragmentListBinding::inflate) {
@@ -24,28 +28,27 @@ class ListFragment :
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(ListFragmentDirections.actionListFragmentToCreateFragment())
         }
-//        setUpAdapter()
+        setUpAdapter()
 
     }
 
-//    val adapter = CharactersAdapter(
-//        object : CharactersAdapter.OnCharacterClickListener {
-//            override fun onCharacterClick(character: CharacterInfo) {
-//                findNavController().navigate(
-//                    CharactersFragmentDirections.actionNavigationCharactersToDescriptionFragment(
-//                        character)
-//                )
-//            }
-//        },
-//        object : CharactersAdapter.OnIsFavouriteClickListener {
-//            override fun onIsFavouriteClick(character: CharacterInfo) {
-//                viewModel.changeIsFavouriteStatus(character)
-//            }
-//        })
-//
-//    binding.rvCharacters.adapter = adapter
-//
-//    viewModel.characterList.observe(viewLifecycleOwner) {
-//        adapter.submitList(it)
-//    }
+    private fun setUpAdapter() {
+        val adapter = QrCodeAdapter(
+            object : QrCodeAdapter.OnQrCodeClickListener {
+                override fun onQrCodeClick(qrCode: QrCodeDomain) {
+                    Toast.makeText(context,qrCode.title,Toast.LENGTH_LONG).show()
+                }
+
+
+            })
+        binding.recyclerview.adapter = adapter
+
+        viewModel.qrCodes.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+
+
+    }
+
 }
