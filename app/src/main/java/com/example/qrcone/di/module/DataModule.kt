@@ -17,32 +17,39 @@ interface DataModule {
     @Binds
     fun bindQrCodeRepository(impl: QrCodeRepository.Base): QrCodeRepository
 
-    @ApplicationScope
-    @Binds
-    fun bindCloudDataSource(impl: CloudDataSource.Test): CloudDataSource
-
     companion object {
-
 
         @ApplicationScope
         @Provides
-        fun provideQrCodeListDao(
-            application: Application,
-        ): QrCodeDao {
-            return AppDatabase.instance(application).qrCodeDao()
+        fun provideQrCodeRepository(
+            qrCodeCacheDataSource: CacheDataSource,
+            qrCodeCacheToDomainMapper: QrCodeCacheToDomainMapper
+        ): QrCodeRepository.Base {
+            return QrCodeRepository.Base(qrCodeCacheDataSource,qrCodeCacheToDomainMapper)
         }
 
         @ApplicationScope
         @Provides
         fun provideCacheDataSource(
-            application: Application,
+            qrCodeDao:QrCodeDao
         ): CacheDataSource {
-            return CacheDataSource.Base(AppDatabase.instance(application).qrCodeDao())
+            return CacheDataSource.Base(qrCodeDao)
         }
 
         @ApplicationScope
         @Provides
         fun provideCacheToDomainMapper() : QrCodeCacheToDomainMapper = QrCodeCacheToDomainMapper.Base()
+
+
+        @ApplicationScope
+        @Provides
+        fun provideQrCodeDao(
+            application: Application,
+        ): QrCodeDao {
+            return AppDatabase.instance(application).qrCodeDao()
+        }
+
+
 
     }
 }
