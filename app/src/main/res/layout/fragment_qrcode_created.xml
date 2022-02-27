@@ -11,11 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/qrCodeCreatedHeader"
@@ -43,24 +44,24 @@
             android:id="@+id/createdQrCodeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Title"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/createdQrCodeImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qrCodeCreatedHeader"
-            android:text="Title" />
+            app:layout_constraintTop_toBottomOf="@+id/qrCodeCreatedHeader" />
 
         <TextView
             android:id="@+id/createdQrCodeContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Content"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/doneButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createdQrCodeImage"
-            android:text="Content" />
+            app:layout_constraintTop_toBottomOf="@+id/createdQrCodeImage" />
 
         <Button
             android:id="@+id/doneButton"

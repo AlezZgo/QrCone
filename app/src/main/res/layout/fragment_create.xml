@@ -6,27 +6,51 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp">
 
+    <TextView
+        android:id="@+id/TitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/title_create"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:ems="10"
+        android:hint="@string/enter_qr_code_title"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView" />
 
     <TextView
         android:id="@+id/ContentTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Content"
+        android:text="@string/content"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title_create" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/content_create"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:clickable="false"
         android:ems="10"
-        android:hint="type something you want to show"
+        android:hint="@string/enter_link_or_some_text_here"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/content_create" />
 
     <Button
         android:id="@+id/createQrCodeButton"
@@ -78,8 +102,8 @@
 
     <ImageView
         android:id="@+id/qrCodePreviewImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toTopOf="@+id/createQrCodeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

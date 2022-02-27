@@ -5,4 +5,9 @@
     <string name="create">Create</string>
     <string name="qr_code_created">Qr code created!</string>
     <string name="okey">okey</string>
+    <string name="title">Title</string>
+    <string name="type_something_you_want_to_show">type something you want to show</string>
+    <string name="content">Content</string>
+    <string name="enter_link_or_some_text_here">enter link or some text here</string>
+    <string name="enter_qr_code_title">enter Qr code title</string>
 </resources>

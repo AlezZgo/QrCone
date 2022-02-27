@@ -25,6 +25,7 @@ class QrCodeCreatedFragment : BaseFragment<FragmentQrcodeCreatedBinding, QrCodeC
         binding.doneButton.setOnClickListener {
             findNavController().navigateUp()
         }
+
     }
 
     override fun onAttach(context: Context) {

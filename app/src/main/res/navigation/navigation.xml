@@ -43,5 +43,8 @@
         <action
             android:id="@+id/action_qrCodeCreatedFragment_to_createFragment"
             app:destination="@id/createFragment" />
+        <argument
+            android:name="QrCodeRequest"
+            app:argType="com.example.qrcone.domain.QrCodeRequest" />
     </fragment>
 </navigation>

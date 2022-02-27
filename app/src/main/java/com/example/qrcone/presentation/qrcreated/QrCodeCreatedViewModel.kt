@@ -6,5 +6,5 @@ import javax.inject.Inject
 class QrCodeCreatedViewModel @Inject constructor(
 
 ) : ViewModel() {
-    // TODO: Implement the ViewModel
+
 }
