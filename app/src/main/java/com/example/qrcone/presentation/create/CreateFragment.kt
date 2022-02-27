@@ -21,11 +21,13 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[CreateViewModel::class.java]
 
+        val launcher = registerImagePicker {
+            viewModel.imagePath = it.first().path
+            binding.pathTextView.text.append(viewModel.imagePath)
+        }
+
         binding.chooseFileImage.setOnClickListener {
-            registerImagePicker {
-                viewModel.imagePath = it.first().path
-                binding.pathTextView.text.append(viewModel.imagePath)
-            }.launch(ImagePickerConfig {
+            launcher.launch(ImagePickerConfig {
                 mode = ImagePickerMode.SINGLE
             })
         }

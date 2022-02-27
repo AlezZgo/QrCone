@@ -18,7 +18,7 @@ interface QrCodeInteractor {
         }
 
         override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeDomain {
-            TODO("Not yet implemented")
+            return repository.generateQrCode(qrCodeRequest)
         }
 
         override fun removeQrCode(qrCodeDomain: QrCodeDomain) {

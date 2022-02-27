@@ -14,7 +14,7 @@ import dagger.Component
         DataModule::class,
         ViewModelModule::class,
         DomainModule::class,
-//        NetModule::class
+        NetModule::class
     ]
 )
 

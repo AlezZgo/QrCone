@@ -1,6 +1,8 @@
 package com.example.qrcone.data.cloud
 
 import com.example.qrcone.domain.QrCodeRequest
+import kotlinx.coroutines.delay
+import javax.inject.Inject
 
 interface CloudDataSource {
 
@@ -8,10 +10,11 @@ interface CloudDataSource {
         qrCodeRequest: QrCodeRequest,
     ): String
 
-    class Test(private val service: QrConeApiService) : CloudDataSource {
+    class Test @Inject constructor(private val service: QrConeApiService) : CloudDataSource {
         override suspend fun createQrCode(
             qrCodeRequest: QrCodeRequest,
         ): String {
+            delay(2000)
             return TEST_BASE64_QR_CODE
         }
 
