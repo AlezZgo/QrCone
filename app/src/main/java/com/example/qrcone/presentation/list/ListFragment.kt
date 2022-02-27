@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentListBinding
 import com.example.qrcone.domain.QrCodeDomain
 import com.example.starwarscharacters.presentation.adapter.QrCodeAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class ListFragment :
     BaseFragment<FragmentListBinding, ListViewModel>(FragmentListBinding::inflate) {
@@ -36,16 +42,14 @@ class ListFragment :
                 override fun onQrCodeClick(qrCode: QrCodeDomain) {
                     findNavController().navigate(ListFragmentDirections.actionListFragmentToDescriptionFragment(
                         qrCode))
-                }
+                }}
+        )
 
-
-            })
         binding.recyclerview.adapter = adapter
 
         viewModel.qrCodes.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
 
     }
 

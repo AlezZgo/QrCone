@@ -2,7 +2,6 @@ package com.example.starwarscharacters.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.qrcone.domain.QrCodeDomain
-import com.example.qrcone.presentation.QrCodeUi
 
 class QrCodeDiffCallback : DiffUtil.ItemCallback<QrCodeDomain>() {
 

@@ -10,7 +10,7 @@ interface QrCodeInteractor {
 
     suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) : QrCodeDomain
 
-    fun removeQrCode(qrCodeDomain : QrCodeDomain)
+    suspend fun removeQrCode(qrCodeDomain : QrCodeDomain)
 
     class Base @Inject constructor(private val repository: QrCodeRepository): QrCodeInteractor{
         override fun fetchQrCodes(): LiveData<List<QrCodeDomain>> {
@@ -21,8 +21,8 @@ interface QrCodeInteractor {
             return repository.generateQrCode(qrCodeRequest)
         }
 
-        override fun removeQrCode(qrCodeDomain: QrCodeDomain) {
-            TODO("Not yet implemented")
+        override suspend fun removeQrCode(qrCodeDomain: QrCodeDomain) {
+            repository.deleteQrCode(qrCodeDomain)
         }
 
     }

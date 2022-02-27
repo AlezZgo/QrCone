@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.qrcone.databinding.ItemQrcodeBinding
 import com.example.qrcone.domain.QrCodeDomain
-import com.example.qrcone.presentation.QrCodeUi
 
 class QrCodeAdapter(
     private val onQrCodeClickListener: OnQrCodeClickListener,

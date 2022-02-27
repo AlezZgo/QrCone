@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.example.qrcone.R
 import com.example.qrcone.databinding.ItemQrcodeBinding
 import com.example.qrcone.domain.QrCodeDomain
-import com.example.qrcone.presentation.QrCodeUi
 
 class QrCodeViewHolder(
     private val binding: ItemQrcodeBinding,

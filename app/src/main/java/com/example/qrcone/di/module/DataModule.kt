@@ -4,7 +4,7 @@ import com.example.qrcone.data.cache.AppDatabase
 import com.example.qrcone.data.cache.CacheDataSource
 import com.example.qrcone.data.cache.QrCodeDao
 import com.example.qrcone.data.cloud.CloudDataSource
-import com.example.qrcone.data.QrCodeCacheToDomainMapper
+import com.example.qrcone.data.QrCodeCacheDomainMapper
 
 import dagger.Binds
 import dagger.Module
@@ -24,9 +24,9 @@ interface DataModule {
         fun provideQrCodeRepository(
             qrCodeCacheDataSource: CacheDataSource,
             cloudDataSource: CloudDataSource,
-            qrCodeCacheToDomainMapper: QrCodeCacheToDomainMapper
+            qrCodeCacheDomainMapper: QrCodeCacheDomainMapper
         ): QrCodeRepository.Base {
-            return QrCodeRepository.Base(qrCodeCacheDataSource,cloudDataSource,qrCodeCacheToDomainMapper)
+            return QrCodeRepository.Base(qrCodeCacheDataSource,cloudDataSource,qrCodeCacheDomainMapper)
         }
 
         @ApplicationScope
@@ -39,7 +39,7 @@ interface DataModule {
 
         @ApplicationScope
         @Provides
-        fun provideCacheToDomainMapper() : QrCodeCacheToDomainMapper = QrCodeCacheToDomainMapper.Base()
+        fun provideCacheToDomainMapper() : QrCodeCacheDomainMapper = QrCodeCacheDomainMapper.Base()
 
 
         @ApplicationScope
