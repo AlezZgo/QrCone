@@ -10,6 +10,6 @@ import javax.inject.Inject
 
 class CreateViewModel @Inject constructor(
 ) : ViewModel() {
-    var currentColor : String = "00000000"
+    var currentColor : String = "000000"
     var imagePath : String? = null
 }

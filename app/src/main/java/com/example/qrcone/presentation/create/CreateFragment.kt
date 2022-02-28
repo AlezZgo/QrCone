@@ -13,6 +13,7 @@ import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentCreateBinding
 import com.example.qrcone.domain.QrCodeRequest
 import dev.sasikanth.colorsheet.ColorSheet
+import okhttp3.internal.toHexString
 
 class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
     FragmentCreateBinding::inflate) {
@@ -48,7 +49,7 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
                 CreateFragmentDirections.actionCreateFragmentToQrCodeCreatedFragment(
                     QrCodeRequest(
                         title = binding.titleCreate.text.toString(),
-                        color = viewModel.currentColor,
+                        color = viewModel.currentColor.toInt().toHexString().removeRange(0,1),
                         content = binding.contentCreate.text.toString(),
                         mediaPath = viewModel.imagePath.toString()
                     )
