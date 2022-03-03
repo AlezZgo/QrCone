@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
 
         if(account==null){
+            finish()
             navigateToLoginActivity()
         }else{
             encryptedSharedPrefs.edit().putString(USER_ID,account.id).apply()
