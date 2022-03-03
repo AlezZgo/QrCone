@@ -10,4 +10,6 @@
     <string name="content">Content</string>
     <string name="enter_link_or_some_text_here">enter link or some text here</string>
     <string name="enter_qr_code_title">enter Qr code title</string>
+    <string name="qrcone">QrCone</string>
+    <string name="server_client_id">892434328035-n392dhutqq9bbv9pkhrbc27hmb73gcb7.apps.googleusercontent.com</string>
 </resources>

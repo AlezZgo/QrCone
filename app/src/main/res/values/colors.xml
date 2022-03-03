@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#4FC3F7</color>
     <color name="medium_blue">#03A9F4</color>
+    <color name="title">#333333</color>
 
     <array name="bottom_sheet_colors">
         <item>#F44336</item>

@@ -49,7 +49,8 @@ class CreateFragment : BaseFragment<FragmentCreateBinding, CreateViewModel>(
                 CreateFragmentDirections.actionCreateFragmentToQrCodeCreatedFragment(
                     QrCodeRequest(
                         title = binding.titleCreate.text.toString(),
-                        color = viewModel.currentColor.toInt().toHexString().removeRange(0,1),
+                        color = viewModel.currentColor.toInt().toHexString().removeRange(0, 1)
+                            .chunked(2).joinToString(","),
                         content = binding.contentCreate.text.toString(),
                         mediaPath = viewModel.imagePath.toString()
                     )
