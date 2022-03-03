@@ -33,7 +33,8 @@ interface QrCodeRepository {
         }
 
         override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) : QrCodeDomain {
-            val imageB64 = qrCodeCloudDataSource.createQrCode(qrCodeRequest)
+            val userId = qrCodeCacheDataSource.getCurrentUserId()
+            val imageB64 = qrCodeCloudDataSource.createQrCode(qrCodeRequest,userId)
             val qrCodeCache = QrCodeCache(qrCodeRequest.title,imageB64,qrCodeRequest.content)
             qrCodeCacheDataSource.insertQrCode(qrCodeCache)
             return qrCodeCacheDomainMapper.mapCacheToDomain(qrCodeCache)

@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var client: GoogleSignInClient
 
-    private lateinit var encryptedSharedPrefs: SharedPreferences
+    @Inject
+    lateinit var encryptedSharedPrefs: SharedPreferences
 
     private val component by lazy {
         (application as QrConeApp).component
@@ -43,16 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val masterKeyAlias: String = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-
-        encryptedSharedPrefs = EncryptedSharedPreferences.create(
-            "secret_shared_prefs",
-            masterKeyAlias,
-            this,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
 
         options = GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN
@@ -67,8 +58,6 @@ class MainActivity : AppCompatActivity() {
         if(account==null){
             finish()
             navigateToLoginActivity()
-        }else{
-            encryptedSharedPrefs.edit().putString(USER_ID,account.id).apply()
         }
     }
 

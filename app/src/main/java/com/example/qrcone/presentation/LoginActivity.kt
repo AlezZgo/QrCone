@@ -1,6 +1,7 @@
 package com.example.qrcone.presentation
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.qrcone.R
@@ -20,6 +21,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var options: GoogleSignInOptions
 
     private lateinit var client: GoogleSignInClient
+
+    @Inject
+    lateinit var encryptedSharedPrefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,6 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun okResult(account: GoogleSignInAccount?){
         if (account != null) {
+            encryptedSharedPrefs.edit().putString(USER_ID,account.id).apply()
             navigateToMainActivity()
         }
     }
@@ -84,5 +89,9 @@ class LoginActivity : AppCompatActivity() {
         finish()
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+    }
+
+    companion object{
+        private const val USER_ID = "user_id"
     }
 }
