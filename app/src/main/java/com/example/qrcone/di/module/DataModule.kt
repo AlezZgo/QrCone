@@ -24,9 +24,10 @@ interface DataModule {
         fun provideQrCodeRepository(
             qrCodeCacheDataSource: CacheDataSource,
             cloudDataSource: CloudDataSource,
-            qrCodeCacheDomainMapper: QrCodeCacheDomainMapper
+            qrCodeCacheDomainMapper: QrCodeCacheDomainMapper,
+        application: Application
         ): QrCodeRepository.Base {
-            return QrCodeRepository.Base(qrCodeCacheDataSource,cloudDataSource,qrCodeCacheDomainMapper)
+            return QrCodeRepository.Base(qrCodeCacheDataSource,cloudDataSource,qrCodeCacheDomainMapper,application)
         }
 
         @ApplicationScope
