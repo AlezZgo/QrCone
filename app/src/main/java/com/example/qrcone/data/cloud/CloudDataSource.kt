@@ -42,7 +42,7 @@ interface CloudDataSource {
                 file.asRequestBody("multipart/form-data".toMediaType())
             )
             Log.i("loger",userID)
-            return service.generate(userID,formData, qrCodeRequest.color, qrCodeRequest.content)
+            return service.generate(userID,formData, "Black", qrCodeRequest.content)
         }
 
     }
