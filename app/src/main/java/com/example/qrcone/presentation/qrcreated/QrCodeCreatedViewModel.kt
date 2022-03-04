@@ -7,10 +7,10 @@ import com.example.qrcone.domain.QrCodeRequest
 import javax.inject.Inject
 
 class QrCodeCreatedViewModel @Inject constructor(
-    private val interactor: QrCodeInteractor
+    private val interactor: QrCodeInteractor,
 ) : ViewModel() {
 
-    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeDomain{
+    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeDomain {
         return interactor.generateQrCode(qrCodeRequest)
     }
 }
