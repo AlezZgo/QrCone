@@ -8,7 +8,7 @@ interface QrConeApiService {
     @Multipart
     @POST("qrgen/")
     suspend fun generate(
-        @Header("user_id") userID: String,
+        @Header("user_id")userID: String,
         @Part filePart: MultipartBody.Part,
         @Query("color") colored: String,
         @Query("content") content: String,

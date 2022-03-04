@@ -21,7 +21,7 @@ class DescriptionFragment : BaseFragment<FragmentDescriptionBinding, Description
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[DescriptionViewModel::class.java]
 
-        with(binding) {
+        with(binding){
 
             val bytes = Base64.decode(args.qrCode.mediaBase64, Base64.DEFAULT)
 

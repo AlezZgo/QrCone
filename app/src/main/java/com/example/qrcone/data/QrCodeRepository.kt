@@ -16,7 +16,7 @@ interface QrCodeRepository {
 
     fun fetchQrCodes(): LiveData<List<QrCodeDomain>>
 
-    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeDomain
+    suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) : QrCodeDomain
 
     suspend fun deleteQrCode(qrCodeDomain: QrCodeDomain)
 
@@ -24,8 +24,8 @@ interface QrCodeRepository {
         private val qrCodeCacheDataSource: CacheDataSource,
         private val qrCodeCloudDataSource: CloudDataSource,
         private val qrCodeCacheDomainMapper: QrCodeCacheDomainMapper,
-        private val application: Application,
-    ) : QrCodeRepository {
+        private val application: Application
+        ) : QrCodeRepository {
 
         override fun fetchQrCodes(): LiveData<List<QrCodeDomain>> {
 
@@ -36,7 +36,7 @@ interface QrCodeRepository {
             }
         }
 
-        override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest): QrCodeDomain {
+        override suspend fun generateQrCode(qrCodeRequest: QrCodeRequest) : QrCodeDomain {
 
             val masterKeyAlias: String = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
 
@@ -48,9 +48,8 @@ interface QrCodeRepository {
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             )
 
-            val imageB64 = qrCodeCloudDataSource.createQrCode(qrCodeRequest,
-                encryptedSharedPrefs.getString("user_id", "-100") ?: "-100")
-            val qrCodeCache = QrCodeCache(qrCodeRequest.title, imageB64, qrCodeRequest.content)
+            val imageB64 = qrCodeCloudDataSource.createQrCode(qrCodeRequest,encryptedSharedPrefs.getString("user_id","-100")?:"-100")
+            val qrCodeCache = QrCodeCache(qrCodeRequest.title,imageB64,qrCodeRequest.content)
             qrCodeCacheDataSource.insertQrCode(qrCodeCache)
             return qrCodeCacheDomainMapper.mapCacheToDomain(qrCodeCache)
         }

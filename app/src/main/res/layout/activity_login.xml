@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/ef_margin_medium"
+    android:layout_margin="16dp"
     android:orientation="vertical"
     tools:context=".presentation.LoginActivity">
 
@@ -12,44 +12,47 @@
         android:id="@+id/signInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_reg" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/image_reg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        android:layout_width="0dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtitle_reg"
-        app:srcCompat="@drawable/qr_icon"
-        tools:layout_editor_absoluteX="6dp" />
+        app:srcCompat="@drawable/qr_icon" />
 
     <TextView
         android:id="@+id/title_reg"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
         android:text="@string/qrcone"
         android:textColor="@color/title"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/subtitle_reg"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="6dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/subtitle_reg"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
-        android:text="keep it simple"
+        android:text="@string/create_custom_qr_code_by_your_own_qrcone"
         android:textColor="#4E4E4E"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/image_reg"
-        app:layout_constraintTop_toBottomOf="@+id/title_reg"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_reg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

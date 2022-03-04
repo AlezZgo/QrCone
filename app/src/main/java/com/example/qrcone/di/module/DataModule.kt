@@ -1,10 +1,11 @@
 import android.app.Application
-import com.example.qrcone.data.QrCodeCacheDomainMapper
 import com.example.qrcone.data.QrCodeRepository
 import com.example.qrcone.data.cache.AppDatabase
 import com.example.qrcone.data.cache.CacheDataSource
 import com.example.qrcone.data.cache.QrCodeDao
 import com.example.qrcone.data.cloud.CloudDataSource
+import com.example.qrcone.data.QrCodeCacheDomainMapper
+
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -24,25 +25,22 @@ interface DataModule {
             qrCodeCacheDataSource: CacheDataSource,
             cloudDataSource: CloudDataSource,
             qrCodeCacheDomainMapper: QrCodeCacheDomainMapper,
-            application: Application,
+        application: Application
         ): QrCodeRepository.Base {
-            return QrCodeRepository.Base(qrCodeCacheDataSource,
-                cloudDataSource,
-                qrCodeCacheDomainMapper,
-                application)
+            return QrCodeRepository.Base(qrCodeCacheDataSource,cloudDataSource,qrCodeCacheDomainMapper,application)
         }
 
         @ApplicationScope
         @Provides
         fun provideCacheDataSource(
-            qrCodeDao: QrCodeDao,
+            qrCodeDao:QrCodeDao
         ): CacheDataSource {
             return CacheDataSource.Base(qrCodeDao)
         }
 
         @ApplicationScope
         @Provides
-        fun provideCacheToDomainMapper(): QrCodeCacheDomainMapper = QrCodeCacheDomainMapper.Base()
+        fun provideCacheToDomainMapper() : QrCodeCacheDomainMapper = QrCodeCacheDomainMapper.Base()
 
 
         @ApplicationScope
@@ -52,6 +50,7 @@ interface DataModule {
         ): QrCodeDao {
             return AppDatabase.instance(application).qrCodeDao()
         }
+
 
 
     }
