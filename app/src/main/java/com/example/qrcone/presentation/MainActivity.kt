@@ -3,25 +3,18 @@ package com.example.qrcone.presentation
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 import com.example.qrcone.R
 import com.example.qrcone.core.QrConeApp
-import com.example.qrcone.databinding.ActivityLoginBinding
 import com.example.qrcone.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,21 +54,21 @@ class MainActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
-        client = GoogleSignIn.getClient(application,options)
+        client = GoogleSignIn.getClient(application, options)
 
         val account = GoogleSignIn.getLastSignedInAccount(this)
 
-        if(account==null){
+        if (account == null) {
             finish()
             navigateToLoginActivity()
-        }else{
-            encryptedSharedPrefs.edit().putString(USER_ID,account.id).apply()
+        } else {
+            encryptedSharedPrefs.edit().putString(USER_ID, account.id).apply()
         }
     }
 
     private fun navigateToLoginActivity() {
         client.signOut().addOnCompleteListener {
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
@@ -84,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
-    companion object{
+    companion object {
         private const val USER_ID = "user_id"
     }
 }

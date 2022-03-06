@@ -8,5 +8,5 @@ data class QrCodeRequest(
     val title: String,
     val color: String,
     val content: String,
-    val mediaPath: String
+    val mediaPath: String,
 ) : Parcelable

@@ -11,11 +11,11 @@ interface QrCodeCacheDomainMapper {
 
     class Base : QrCodeCacheDomainMapper {
         override fun mapCacheToDomain(qrCodeCache: QrCodeCache): QrCodeDomain {
-            return QrCodeDomain(qrCodeCache.title,qrCodeCache.mediaBase64,qrCodeCache.content)
+            return QrCodeDomain(qrCodeCache.title, qrCodeCache.mediaBase64, qrCodeCache.content)
         }
 
         override fun mapDomainToCache(qrCodeDomain: QrCodeDomain): QrCodeCache {
-            return QrCodeCache(qrCodeDomain.title,qrCodeDomain.mediaBase64,qrCodeDomain.content)
+            return QrCodeCache(qrCodeDomain.title, qrCodeDomain.mediaBase64, qrCodeDomain.content)
         }
     }
 }
