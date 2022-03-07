@@ -19,14 +19,14 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var client: GoogleSignInClient
 
+    // TODO fix later
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
 
         options = GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN
-        ).requestServerAuthCode(resources.getString(R.string.server_client_id))
-            .requestEmail()
+        ).requestEmail()
             .build()
 
         client = GoogleSignIn.getClient(application, options)
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 100) {
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
 
         }

@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         (application as QrConeApp).component
     }
 
+    // TODO fix later
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         component.inject(this)

@@ -16,7 +16,7 @@ interface CloudDataSource {
         userID: String,
     ): String
 
-    class Test @Inject constructor(private val service: QrConeApiService) : CloudDataSource {
+    class Test @Inject constructor() : CloudDataSource {
         override suspend fun createQrCode(
             qrCodeRequest: QrCodeRequest,
             userID: String,
