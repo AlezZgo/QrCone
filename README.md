@@ -26,3 +26,5 @@ The main purpose of this app is to hold created by user QrCodes and view it
 **Voila!**
 
 ![7](https://user-images.githubusercontent.com/72276469/159567404-7c7b93c5-478f-427a-b06f-e4ee0f7c90fc.jpg)
+
+Also, you can delete item by swipe
