@@ -9,7 +9,7 @@ The main purpose of this app is to hold created by user QrCodes and view it
 
 ![2](https://user-images.githubusercontent.com/72276469/159566599-91eb2498-fefa-4d47-964e-1f597812d815.jpg)
 
-**!!! The server is not yet able to process colors and images, so just pass them !!!**
+**!!! The server is not yet able to process colors and images, so just pass them, but the code of client part is already send multipart request !!!**
 
 **pick image**
 
