@@ -9,19 +9,19 @@ import javax.inject.Inject
 
 class ListViewModel @Inject constructor(
     private val qrCodeInteractor: QrCodeInteractor,
-    private val qrCodesListCommunication: QrCodesListCommunication
+    private val qrCodesListBinder: QrCodesListBinder
 ) : ViewModel() {
 
     suspend fun delete(qrCodeDomain: QrCodeDomain) {
         qrCodeInteractor.removeQrCode(qrCodeDomain)
     }
 
-    fun observe(owner: LifecycleOwner, observer: Observer<List<QrCodeDomain>>){
-        qrCodesListCommunication.observe(owner, observer)
+    fun observeList(owner: LifecycleOwner, observer: Observer<List<QrCodeDomain>>){
+        qrCodesListBinder.observe(owner, observer)
     }
 
     fun fetchQrCodes(){
-        qrCodesListCommunication.follow(qrCodeInteractor.fetchQrCodes())
+        qrCodesListBinder.bind(qrCodeInteractor.fetchQrCodes())
     }
 
 

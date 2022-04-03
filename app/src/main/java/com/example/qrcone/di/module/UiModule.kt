@@ -1,6 +1,6 @@
 package com.example.qrcone.di.module
 
-import com.example.qrcone.presentation.list.QrCodesListCommunication
+import com.example.qrcone.presentation.list.QrCodesListBinder
 import dagger.Binds
 import dagger.Module
 
@@ -8,7 +8,7 @@ import dagger.Module
 interface UiModule {
 
     @Binds
-    fun bindOnCommunication(communication: QrCodesListCommunication.Base): QrCodesListCommunication
+    fun bindOnCommunication(binder: QrCodesListBinder.Base): QrCodesListBinder
 
 
 }

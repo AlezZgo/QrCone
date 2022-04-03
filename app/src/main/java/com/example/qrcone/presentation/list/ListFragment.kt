@@ -50,7 +50,7 @@ class ListFragment :
 
         viewModel.fetchQrCodes()
 
-        viewModel.observe(viewLifecycleOwner) {
+        viewModel.observeList(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
