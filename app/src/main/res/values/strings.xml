@@ -13,4 +13,5 @@
     <string name="qrcone">QrCone</string>
     <string name="server_client_id">892434328035-n392dhutqq9bbv9pkhrbc27hmb73gcb7.apps.googleusercontent.com</string>
     <string name="create_custom_qr_code_by_your_own_qrcone">create custom Qr code by your own QrCone!</string>
+    <string name="you_qr_holder_is_empty_n_add_one_by_plus_button_downside">You Qr Holder is empty \n add one by plus button downside</string>
 </resources>

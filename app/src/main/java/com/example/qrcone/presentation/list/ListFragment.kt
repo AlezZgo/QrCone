@@ -52,9 +52,14 @@ class ListFragment :
 
         viewModel.observeList(viewLifecycleOwner) {
             if(it.isEmpty()){
-
+                binding.cachedListProgressBar.visibility = View.GONE
+                binding.fragmentEmptyList.visibility = View.VISIBLE
+            }else{
+                binding.cachedListProgressBar.visibility = View.GONE
+                binding.recyclerview.visibility = View.VISIBLE
+                adapter.submitList(it)
             }
-            adapter.submitList(it)
+
         }
 
         setupSwipeListener(adapter)
