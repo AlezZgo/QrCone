@@ -1,6 +1,7 @@
 package com.example.qrcone.data.cache
 
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
 interface CacheDataSource {
     fun fetchQrCodes(): LiveData<List<QrCodeCache>>
@@ -9,7 +10,7 @@ interface CacheDataSource {
 
     suspend fun deleteQrCode(qrCodeDomain: QrCodeCache)
 
-    class Base(private val qrCodeDao: QrCodeDao) : CacheDataSource {
+    class Base @Inject constructor(private val qrCodeDao: QrCodeDao) : CacheDataSource {
         override fun fetchQrCodes(): LiveData<List<QrCodeCache>> {
             return qrCodeDao.qrCodeList()
         }

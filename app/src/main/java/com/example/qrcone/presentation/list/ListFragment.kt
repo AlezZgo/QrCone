@@ -48,7 +48,9 @@ class ListFragment :
 
         binding.recyclerview.adapter = adapter
 
-        viewModel.qrCodes.observe(viewLifecycleOwner) {
+        viewModel.fetchQrCodes()
+
+        viewModel.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
