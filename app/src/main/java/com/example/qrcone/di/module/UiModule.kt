@@ -8,7 +8,7 @@ import dagger.Module
 interface UiModule {
 
     @Binds
-    fun bindOnCommunication(binder: QrCodesListBinder.Base): QrCodesListBinder
+    fun bindBinder(binder: QrCodesListBinder.Base): QrCodesListBinder
 
 
 }

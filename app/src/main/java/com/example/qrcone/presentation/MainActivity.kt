@@ -20,18 +20,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var options: GoogleSignInOptions
-
-    private lateinit var client: GoogleSignInClient
-
-    private lateinit var encryptedSharedPrefs: SharedPreferences
-
     private val component by lazy {
         (application as QrConeApp).component
     }
 
-    // TODO fix later
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         component.inject(this)
         super.onCreate(savedInstanceState)
@@ -39,38 +31,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val masterKeyAlias: String = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-
-        encryptedSharedPrefs = EncryptedSharedPreferences.create(
-            "secret_shared_prefs",
-            masterKeyAlias,
-            this,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-
-        options = GoogleSignInOptions.Builder(
-            GoogleSignInOptions.DEFAULT_SIGN_IN
-        ).requestServerAuthCode(resources.getString(R.string.server_client_id))
-            .requestEmail()
-            .build()
-
-        client = GoogleSignIn.getClient(application, options)
-
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        if (account == null) {
-            finish()
-            navigateToLoginActivity()
-        } else {
-            encryptedSharedPrefs.edit().putString(USER_ID, account.id).apply()
-        }
-    }
-
-    private fun navigateToLoginActivity() {
-        client.signOut().addOnCompleteListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -78,7 +38,4 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
-    companion object {
-        private const val USER_ID = "user_id"
-    }
 }

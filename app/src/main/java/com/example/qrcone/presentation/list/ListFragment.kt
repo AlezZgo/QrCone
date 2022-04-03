@@ -51,6 +51,9 @@ class ListFragment :
         viewModel.fetchQrCodes()
 
         viewModel.observeList(viewLifecycleOwner) {
+            if(it.isEmpty()){
+
+            }
             adapter.submitList(it)
         }
 
