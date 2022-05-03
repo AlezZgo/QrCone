@@ -7,9 +7,9 @@ import com.example.qrcone.core.Binder
 import com.example.qrcone.domain.QrCodeDomain
 import javax.inject.Inject
 
-interface QrCodesListBinder : Binder<List<QrCodeDomain>> {
+interface QrCodesListCommunication : Binder<List<QrCodeDomain>> {
 
-    class Base @Inject constructor() : QrCodesListBinder{
+    class Base @Inject constructor() : QrCodesListCommunication{
         private lateinit var liveData : LiveData<List<QrCodeDomain>>
 
         override fun observe(owner: LifecycleOwner, observer: Observer<List<QrCodeDomain>>) =

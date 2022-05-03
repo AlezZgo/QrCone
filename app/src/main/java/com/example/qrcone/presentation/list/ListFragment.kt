@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.qrcone.core.BaseFragment
 import com.example.qrcone.databinding.FragmentListBinding
 import com.example.qrcone.domain.QrCodeDomain

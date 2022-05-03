@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class ListViewModel @Inject constructor(
     private val qrCodeInteractor: QrCodeInteractor,
-    private val qrCodesListBinder: QrCodesListBinder
+    private val qrCodesListCommunication: QrCodesListCommunication
 ) : ViewModel() {
 
     suspend fun delete(qrCodeDomain: QrCodeDomain) {
@@ -17,11 +17,11 @@ class ListViewModel @Inject constructor(
     }
 
     fun observeList(owner: LifecycleOwner, observer: Observer<List<QrCodeDomain>>){
-        qrCodesListBinder.observe(owner, observer)
+        qrCodesListCommunication.observe(owner, observer)
     }
 
     fun fetchQrCodes(){
-        qrCodesListBinder.bind(qrCodeInteractor.fetchQrCodes())
+        qrCodesListCommunication.bind(qrCodeInteractor.fetchQrCodes())
     }
 
 
